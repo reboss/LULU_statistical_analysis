@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-
 lulu = read_csv(sys.argv[1])
 snp = read_csv(sys.argv[2])
 
@@ -28,29 +27,11 @@ def alignData(d1, d2):
 
 	return [np.array([x for x in ld['Close']][idx:]), np.array([x for x in sd['Close']])]
 
-#x = np.diff(x) / x[:-1]
-#y = np.diff(y) / y[:-1]
-
-
-#data = np.array([x, y])
-
-#x_mean = x.mean()
-#x_std = x.std() ** 2
-
-#y_mean = y.mean()
-#y_std = y.std() ** 2
-
-#print("Mean:: S&P - %.2f   LULU - %.2f" % (snp_mean, lulu_mean))
-#print("STD::  S&P - %.2f   LULU - %.2f" % (snp_std, lulu_std))
-
 def covariance(x, mean_x, y, mean_y):
 	covar = 0.0
 	for i in range(len(x)):
 		covar += (x[i] - x.mean()) * (y[i] - y.mean()) / (len(x) - 1)
 	return covar
-
-#cov = covariance(x, x_mean, y, y_mean)
-#print("Covariance = ", cov)
 
 def getCoefficients(dataset):
 	x = dataset[0]
@@ -96,7 +77,6 @@ def algo(x, y):
 	sorted_x = list(x)
 	sorted_x.sort()
 
-	print(b0, "     ", b1)
 	plt.plot(x, y, '.')
 	plt.plot(sorted_x, [b0 + b1*i for i in sorted_x], '--r')
 	plt.show()
