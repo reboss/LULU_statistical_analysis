@@ -65,6 +65,18 @@ print("Emission Matrix")
 print(model.emissionprob_)
 
 bins = 6
-for i in range(1):
-	plt.hist(mc[i], histtype="step")
+x_bar = list()
+for i in range(6):
+	x_bar.append([])
+	for j in range(6):
+#		if (2 != j != 3):
+		x_bar[i] += ([j] * int(mc[i][j] * 10000))
+
+for i in range(6):
+	fig, ax1 = plt.subplots()
+	ax1.hist(x_bar[i], [0,1,2,3,4,5,6], histtype="stepfilled")
+	y_vals = ax1.get_yticks()
+	ax1.set_yticklabels(['{:3.0f}%'.format(x / 100) for x in y_vals])
 	plt.show()
+
+
