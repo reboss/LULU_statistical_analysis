@@ -77,6 +77,7 @@ def algo(x, y):
 	sorted_x = list(x)
 	sorted_x.sort()
 
+	print("BETA = " + str(b1))
 	plt.plot(x, y, '.')
 	plt.plot(sorted_x, [b0 + b1*i for i in sorted_x], '--r')
 	plt.show()
