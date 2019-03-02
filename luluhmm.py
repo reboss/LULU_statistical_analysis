@@ -5,10 +5,7 @@ import sys
 from pandas import DataFrame,read_csv
 import matplotlib.pyplot as plt
 
-#np.random.seed(11) #bad 1/2 std
-#np.random.seed(7) # alright 1/2 std
-# np.random.seed(5) # bad 1/2 std
-np.random.seed(21)  # good 1/2 std
+np.random.seed(21)
 
 plt.style.use('ggplot')
 
@@ -16,12 +13,10 @@ N_HIDDEN = 3
 
 data = read_csv(sys.argv[1])['Close']
 diffed = data.diff()
-#print(data['Close'])
 
 OBSERVATIONS = (0,1,2,3,4,5)
 
 std = diffed.std()/2
-#std = diffed.std()
 
 print("STD == ", diffed.std())
 print("Mean == ", diffed.mean())
