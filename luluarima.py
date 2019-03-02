@@ -5,8 +5,6 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 import pandas as pd
 import sys
 
-plotly.tools.set_credentials_file(username='jobbins', api_key='mHnqtL79KAI1V1tbSZMm')
-
 
 data = pd.read_csv(sys.argv[1],index_col=0)
 data = data['Close']
